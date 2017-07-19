@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace bankAccount
 {
-    class Checking : Account
+    class Savings : Account
     {
         //fields
         protected int accountNumber;
         protected decimal accountBalance;
 
-        //constructor
-        public Checking()
+        //constuctor
+        public Savings()
         {
 
         }
-     
-       
     }
 }
