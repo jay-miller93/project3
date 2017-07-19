@@ -12,20 +12,20 @@ namespace bankAccount
         private string name;
         protected string address;
         private int age;
-        private int socialSecurity;
+        private string socialSecurity;
 
         //properties
-        public string Name { get; }
-        public string Address { get; }
-        public int Age { get; }
-        public int SocialSecurity { get; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int Age { get; set; }
+        public string SocialSecurity { get; set; }
 
         //constructors
         public Client()
         {
 
         }
-        public Client(string name, string address, int age, int socialSecurity)
+        public Client(string name, string address, int age, string socialSecurity)
         {
             this.name = name;
             this.address = address;
@@ -33,7 +33,11 @@ namespace bankAccount
             this.socialSecurity = socialSecurity; 
         }
 
-
+        //method
+        public void PersonalInfo()
+        {
+            Console.WriteLine("Your Information:");
+        }
 
     }
 }

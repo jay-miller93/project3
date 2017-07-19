@@ -12,10 +12,17 @@ namespace bankAccount
         protected int accountNumber;
         protected decimal accountBalance;
 
+        //properties
+        public decimal AccountBalance { get; set; }
+
         //constructor
         public Checking()
         {
 
+        }
+        public Checking(decimal accountBalance)
+        {
+            this.accountBalance = accountBalance;
         }
      
        

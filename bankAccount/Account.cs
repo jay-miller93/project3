@@ -12,7 +12,8 @@ namespace bankAccount
         protected int accountNumber;
         protected decimal checkingBalance;
         protected decimal savingsBalance;
-        protected decimal accountBalance;
+        protected decimal accountBalance = 1000000.00M;
+        decimal newAccountDepositBalance;
         decimal deposit;
         decimal withdraw;
         //protected string savings;
@@ -23,6 +24,7 @@ namespace bankAccount
         public decimal CheckingBalance { get; set; }
         public decimal SavingsBalance { get; set; }
         public decimal AccountBalance { get; set; }
+       // public decimal Deposit { get; set; }
         //public string Savings { get; set; }
         //public string Checking { get; set; }
         
@@ -38,6 +40,10 @@ namespace bankAccount
             this.savingsBalance = savingsBalance;
             this.accountBalance = accountBalance;
         }
+        public Account(decimal accountBalance)
+        {
+            this.accountBalance = accountBalance;
+        }
         //public Account(string savings, string checking)
         //{
         //    //this.savings = savings;
@@ -47,6 +53,7 @@ namespace bankAccount
 
         public virtual decimal GetAccountBalance()
         {
+           
             return accountBalance;
 
         }
@@ -56,16 +63,21 @@ namespace bankAccount
           
         //}
 
-        public virtual decimal Deposit()
+        public virtual decimal DepositFunds(decimal accountBalance, decimal deposit)
         {
-
-            decimal newAccountDepositBalance = accountBalance + deposit;
+            Console.WriteLine("How much would you like to deposit?");
+            deposit = decimal.Parse(Console.ReadLine());
+            newAccountDepositBalance = accountBalance + deposit;
+            Console.WriteLine("Your new account balance is: $" + newAccountDepositBalance );
             return newAccountDepositBalance;
         }
 
-        public virtual decimal Withdraw()
+        public virtual decimal Withdraw(decimal accountBalance, decimal withdraw)
         {
+            Console.WriteLine("How much would you like to withdraw?");
+            withdraw = decimal.Parse(Console.ReadLine());
             decimal newAccountWithdrawBalance = accountBalance - withdraw;
+            Console.WriteLine("Your new account balance is: $" + newAccountWithdrawBalance);
             return newAccountWithdrawBalance;
         }
 
