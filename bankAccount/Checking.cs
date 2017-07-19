@@ -24,7 +24,13 @@ namespace bankAccount
         {
             this.accountBalance = accountBalance;
         }
-     
-       
+        public override decimal GetAccountBalance()
+        {
+
+            return accountBalance;
+
+        }
+
+
     }
 }

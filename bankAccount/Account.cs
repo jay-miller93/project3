@@ -20,7 +20,7 @@ namespace bankAccount
         //protected string checking;
       
             //properties
-        public int AccountNumber { get; }
+        public int AccountNumber { get; set; }
         public decimal CheckingBalance { get; set; }
         public decimal SavingsBalance { get; set; }
         public decimal AccountBalance { get; set; }
@@ -72,13 +72,23 @@ namespace bankAccount
             return newAccountDepositBalance;
         }
 
-        public virtual decimal Withdraw(decimal accountBalance, decimal withdraw)
+        public virtual void Withdraw(decimal accountBalance, decimal withdraw)
         {
             Console.WriteLine("How much would you like to withdraw?");
             withdraw = decimal.Parse(Console.ReadLine());
             decimal newAccountWithdrawBalance = accountBalance - withdraw;
-            Console.WriteLine("Your new account balance is: $" + newAccountWithdrawBalance);
-            return newAccountWithdrawBalance;
+            if (newAccountWithdrawBalance < 5.00M)
+            {
+                Console.WriteLine("You cannot have an account balance lower than $5.00!");
+            }
+            else
+            {
+                Console.WriteLine("Your new account balance is: $" + newAccountWithdrawBalance);
+
+             //   Console.WriteLine(newAccountWithdrawBalance);
+               // return accountBalance;
+            }
+           // 
         }
 
     }
